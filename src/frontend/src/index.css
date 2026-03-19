@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 97 0.01 240;
+    --foreground: 16 0.02 260;
+    --card: 100 0 0;
+    --card-foreground: 16 0.02 260;
+    --popover: 100 0 0;
+    --popover-foreground: 16 0.02 260;
+    --primary: 52 0.18 250;
+    --primary-foreground: 100 0 0;
+    --secondary: 95 0.015 230;
+    --secondary-foreground: 16 0.02 260;
+    --muted: 95 0.01 240;
+    --muted-foreground: 52 0.02 260;
+    --accent: 62 0.18 45;
+    --accent-foreground: 100 0 0;
+    --destructive: 55 0.22 25;
+    --destructive-foreground: 100 0 0;
+    --border: 91 0.01 260;
+    --input: 91 0.01 260;
+    --ring: 52 0.18 250;
+    --navy: 21 0.06 240;
+    --navy-foreground: 97 0.01 240;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
