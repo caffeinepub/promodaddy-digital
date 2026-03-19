@@ -14,30 +14,27 @@ const INDUSTRIES = [
 ];
 
 export function Industries() {
-  const items = [...INDUSTRIES, ...INDUSTRIES]; // duplicate for seamless loop
+  const items = [...INDUSTRIES, ...INDUSTRIES];
 
   return (
-    <section className="py-16 bg-[#EAF6FF] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
-        <span className="text-[#2B6FEA] font-semibold text-sm uppercase tracking-widest">
+    <section className="py-20 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-12">
+        <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
           Our Reach
-        </span>
-        <h2 className="text-3xl font-bold text-[#111827] mt-2">
+        </p>
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
           Industries We Serve
         </h2>
-        <p className="text-gray-500 mt-2">
-          Delivering digital excellence across diverse sectors
-        </p>
       </div>
       <div className="relative overflow-hidden">
         <div className="marquee-track">
           {items.map((industry, i) => (
             <div
               key={`${industry.label}-${i}`}
-              className="flex items-center gap-3 bg-white border border-border rounded-full px-6 py-3 mx-3 whitespace-nowrap shadow-sm"
+              className="flex items-center gap-3 border border-white/10 rounded px-6 py-3 mx-3 whitespace-nowrap"
             >
               <span className="text-xl">{industry.icon}</span>
-              <span className="font-medium text-[#111827]">
+              <span className="font-medium text-white/60">
                 {industry.label}
               </span>
             </div>

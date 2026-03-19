@@ -13,44 +13,44 @@ export function SiteFooter() {
     typeof window !== "undefined" ? window.location.hostname : "promodaddy.in";
 
   return (
-    <footer className="bg-[#0B1F3A] text-white">
-      <div className="max-w-7xl mx-auto px-4 py-14">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-[#000] text-white border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
-          <div>
-            <div className="text-2xl font-black mb-3">
-              <span className="text-[#2B6FEA]">Promo</span>
-              <span className="text-[#F26A21]">Daddy</span>
-              <span className="text-white"> Digital</span>
+          <div className="lg:col-span-2">
+            <div className="text-2xl font-bold mb-4">
+              <span className="text-white">Promo</span>
+              <span className="text-[#F26A21]">D</span>
+              <span className="text-white">addy</span>
             </div>
-            <p className="text-blue-200 text-sm leading-relaxed">
-              India's #1 digital marketing agency based in Kota, Rajasthan. We
-              help brands grow with data-driven SEO, Google Ads, and social
-              media strategies.
+            <p className="text-white/40 text-sm leading-relaxed mb-6">
+              India's premier digital marketing agency from Kota, Rajasthan.
+              Building brands, generating leads, driving real results since
+              2016.
             </p>
-            <div className="flex gap-3 mt-5">
+            <div className="flex gap-3">
               {[
-                {
-                  icon: SiFacebook,
-                  href: "https://facebook.com",
-                  label: "Facebook",
-                },
                 {
                   icon: SiInstagram,
                   href: "https://instagram.com",
                   label: "Instagram",
-                },
-                { icon: SiX, href: "https://x.com", label: "X" },
-                {
-                  icon: SiYoutube,
-                  href: "https://youtube.com",
-                  label: "YouTube",
                 },
                 {
                   icon: SiLinkedin,
                   href: "https://linkedin.com",
                   label: "LinkedIn",
                 },
+                {
+                  icon: SiFacebook,
+                  href: "https://facebook.com",
+                  label: "Facebook",
+                },
+                {
+                  icon: SiYoutube,
+                  href: "https://youtube.com",
+                  label: "YouTube",
+                },
+                { icon: SiX, href: "https://x.com", label: "X" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -58,7 +58,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-8 h-8 bg-white/10 hover:bg-[#2B6FEA] rounded-lg flex items-center justify-center transition-colors"
+                  className="w-8 h-8 border border-white/10 hover:border-[#F26A21] hover:text-[#F26A21] flex items-center justify-center transition-colors text-white/50"
                 >
                   <Icon size={14} />
                 </a>
@@ -68,22 +68,15 @@ export function SiteFooter() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest mb-4 text-blue-300">
+            <h4 className="font-semibold text-xs uppercase tracking-[0.2em] mb-6 text-white/40">
               Quick Links
             </h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                "Home",
-                "About Us",
-                "Services",
-                "Projects",
-                "Blog",
-                "Contact",
-              ].map((link) => (
+            <ul className="space-y-3 text-sm">
+              {["Home", "Work", "Services", "About", "Contact"].map((link) => (
                 <li key={link}>
                   <a
-                    href={`#${link.toLowerCase().replace(" ", "-")}`}
-                    className="text-blue-200 hover:text-white transition-colors"
+                    href={`#${link.toLowerCase()}`}
+                    className="text-white/50 hover:text-white transition-colors"
                   >
                     {link}
                   </a>
@@ -94,10 +87,10 @@ export function SiteFooter() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest mb-4 text-blue-300">
-              Our Services
+            <h4 className="font-semibold text-xs uppercase tracking-[0.2em] mb-6 text-white/40">
+              Services
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm">
               {[
                 "SEO Optimization",
                 "Google Ads",
@@ -109,7 +102,7 @@ export function SiteFooter() {
                 <li key={s}>
                   <a
                     href="#services"
-                    className="text-blue-200 hover:text-white transition-colors"
+                    className="text-white/50 hover:text-white transition-colors"
                   >
                     {s}
                   </a>
@@ -118,41 +111,59 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Local Presence */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest mb-4 text-blue-300">
-              Contact
+            <h4 className="font-semibold text-xs uppercase tracking-[0.2em] mb-6 text-white/40">
+              Our Local Presence
             </h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
+            <ul className="space-y-3 text-sm mb-6">
+              <li>
+                <a
+                  href="/kota"
+                  className="text-[#F26A21] hover:text-[#F26A21]/80 transition-colors font-medium flex items-center gap-1"
+                >
+                  📍 Digital Marketing in Kota
+                </a>
+              </li>
+              <li className="text-white/40 text-xs leading-relaxed">
+                Serving coaching institutes, hospitals, real estate &amp; local
+                businesses in Kota, Rajasthan
+              </li>
+            </ul>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3">
                 <Phone size={14} className="text-[#F26A21] mt-0.5 shrink-0" />
                 <a
                   href="tel:+918690522210"
-                  className="text-blue-200 hover:text-white"
+                  className="text-white/50 hover:text-white transition-colors"
                 >
                   +91 86905 22210
                 </a>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-3">
                 <Mail size={14} className="text-[#F26A21] mt-0.5 shrink-0" />
                 <a
                   href="mailto:info@promodaddy.in"
-                  className="text-blue-200 hover:text-white"
+                  className="text-white/50 hover:text-white transition-colors"
                 >
                   info@promodaddy.in
                 </a>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-3">
                 <MapPin size={14} className="text-[#F26A21] mt-0.5 shrink-0" />
-                <span className="text-blue-200">Kota, Rajasthan — 324001</span>
+                <span className="text-white/50">
+                  Plot No. 26, Mahaveer Nagar,
+                  <br />
+                  Kota, Rajasthan - 324005
+                </span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-5">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-blue-300">
+      <div className="border-t border-white/5 py-5">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/30">
           <span>© {year} PromoDaddy Digital. All rights reserved.</span>
           <span>
             Built with ❤️ using{" "}
@@ -160,7 +171,7 @@ export function SiteFooter() {
               href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(hostname)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#2B6FEA] hover:underline"
+              className="text-[#F26A21] hover:underline"
             >
               caffeine.ai
             </a>

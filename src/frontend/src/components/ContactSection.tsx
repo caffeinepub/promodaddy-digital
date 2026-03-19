@@ -44,7 +44,7 @@ export function ContactSection() {
     }
     try {
       await submitContact.mutateAsync(form);
-      toast.success("🎉 Thank you! We'll contact you within 24 hours.");
+      toast.success("Thank you! We'll contact you within 24 hours.");
       setForm({
         name: "",
         email: "",
@@ -60,105 +60,97 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#EAF6FF]">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <span className="text-[#F26A21] font-semibold text-sm uppercase tracking-widest">
-            Get In Touch
-          </span>
-          <h2 className="text-3xl font-bold text-[#111827] mt-2">
-            Start Your Growth Journey
-          </h2>
-          <p className="text-gray-500 mt-2">
-            Get a free consultation and custom strategy from our experts
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* Contact Info */}
+    <section
+      id="contact"
+      className="py-24 bg-[#0f0f0f] border-t border-white/5"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-20">
+          {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            <h3 className="text-xl font-bold text-[#111827] mb-6">
-              Let's Talk Business
-            </h3>
-            <div className="space-y-5">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-[#2B6FEA] rounded-xl flex items-center justify-center shrink-0">
-                  <Phone size={18} className="text-white" />
+            <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+              Get In Touch
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-10">
+              Let's Create
+              <br />
+              Something Great
+            </h2>
+
+            <div className="space-y-6">
+              <div className="flex items-start gap-5">
+                <div className="w-10 h-10 border border-[#F26A21] flex items-center justify-center shrink-0">
+                  <Phone size={16} className="text-[#F26A21]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#111827]">
+                  <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
                     Phone / WhatsApp
                   </p>
                   <a
                     href="tel:+918690522210"
-                    className="text-gray-600 hover:text-[#2B6FEA]"
+                    className="text-white font-medium hover:text-[#F26A21] transition-colors"
                   >
                     +91 86905 22210
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-[#F26A21] rounded-xl flex items-center justify-center shrink-0">
-                  <Mail size={18} className="text-white" />
+              <div className="flex items-start gap-5">
+                <div className="w-10 h-10 border border-[#F26A21] flex items-center justify-center shrink-0">
+                  <Mail size={16} className="text-[#F26A21]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#111827]">Email</p>
+                  <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                    Email
+                  </p>
                   <a
                     href="mailto:info@promodaddy.in"
-                    className="text-gray-600 hover:text-[#2B6FEA]"
+                    className="text-white font-medium hover:text-[#F26A21] transition-colors"
                   >
                     info@promodaddy.in
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-[#0B1F3A] rounded-xl flex items-center justify-center shrink-0">
-                  <MapPin size={18} className="text-white" />
+              <div className="flex items-start gap-5">
+                <div className="w-10 h-10 border border-[#F26A21] flex items-center justify-center shrink-0">
+                  <MapPin size={16} className="text-[#F26A21]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#111827]">Office</p>
-                  <p className="text-gray-600">
-                    Kota, Rajasthan — 324001
+                  <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                    Office
+                  </p>
+                  <p className="text-white font-medium">
+                    Plot No. 26, Mahaveer Nagar Vistar Yojana,
                     <br />
-                    Serving all of India
+                    Kota, Rajasthan - 324005
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="mt-8 p-5 bg-[#0B1F3A] rounded-2xl text-white">
-              <p className="font-bold text-lg mb-1">
-                Free Consultation Worth ₹5,000
-              </p>
-              <p className="text-blue-200 text-sm">
-                Fill the form and get a custom digital marketing strategy for
-                your business — absolutely free.
-              </p>
             </div>
           </motion.div>
 
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
-            className="bg-white rounded-2xl p-8 shadow-md"
-            initial={{ opacity: 0, x: 20 }}
+            className="bg-white rounded p-8"
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
             data-ocid="contact.modal"
           >
+            <h3 className="text-[#0a0a0a] font-bold text-2xl mb-6">
+              Get Free Consultation
+            </h3>
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
               <div>
                 <Label
                   htmlFor="name"
-                  className="text-sm font-medium mb-1.5 block"
+                  className="text-sm font-medium mb-1.5 block text-gray-700"
                 >
                   Full Name *
                 </Label>
@@ -171,12 +163,13 @@ export function ContactSection() {
                   }
                   data-ocid="contact.name.input"
                   required
+                  className="border-gray-200 text-gray-900"
                 />
               </div>
               <div>
                 <Label
                   htmlFor="phone"
-                  className="text-sm font-medium mb-1.5 block"
+                  className="text-sm font-medium mb-1.5 block text-gray-700"
                 >
                   Phone / WhatsApp *
                 </Label>
@@ -189,13 +182,14 @@ export function ContactSection() {
                   }
                   data-ocid="contact.phone.input"
                   required
+                  className="border-gray-200 text-gray-900"
                 />
               </div>
             </div>
             <div className="mb-4">
               <Label
                 htmlFor="email"
-                className="text-sm font-medium mb-1.5 block"
+                className="text-sm font-medium mb-1.5 block text-gray-700"
               >
                 Email Address *
               </Label>
@@ -209,12 +203,13 @@ export function ContactSection() {
                 }
                 data-ocid="contact.email.input"
                 required
+                className="border-gray-200 text-gray-900"
               />
             </div>
             <div className="mb-4">
               <Label
                 htmlFor="service"
-                className="text-sm font-medium mb-1.5 block"
+                className="text-sm font-medium mb-1.5 block text-gray-700"
               >
                 Service Interested In *
               </Label>
@@ -224,7 +219,11 @@ export function ContactSection() {
                   setForm((p) => ({ ...p, serviceInterest: v }))
                 }
               >
-                <SelectTrigger data-ocid="contact.service.select" id="service">
+                <SelectTrigger
+                  data-ocid="contact.service.select"
+                  id="service"
+                  className="border-gray-200 text-gray-900"
+                >
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
@@ -239,7 +238,7 @@ export function ContactSection() {
             <div className="mb-6">
               <Label
                 htmlFor="message"
-                className="text-sm font-medium mb-1.5 block"
+                className="text-sm font-medium mb-1.5 block text-gray-700"
               >
                 Message
               </Label>
@@ -252,11 +251,12 @@ export function ContactSection() {
                   setForm((p) => ({ ...p, message: e.target.value }))
                 }
                 data-ocid="contact.message.textarea"
+                className="border-gray-200 text-gray-900"
               />
             </div>
             <Button
               type="submit"
-              className="w-full bg-[#2B6FEA] hover:bg-[#1a5bd4] text-white font-semibold py-5 rounded-xl"
+              className="w-full bg-[#F26A21] hover:bg-[#d95b18] text-white font-bold py-5 rounded-none uppercase tracking-widest text-sm"
               disabled={submitContact.isPending}
               data-ocid="contact.submit.button"
             >
@@ -265,7 +265,7 @@ export function ContactSection() {
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
                 </>
               ) : (
-                "Get Free Consultation 🚀"
+                "Get Free Consultation"
               )}
             </Button>
             {submitContact.isSuccess && (
@@ -273,7 +273,7 @@ export function ContactSection() {
                 className="text-green-600 text-sm text-center mt-3 font-medium"
                 data-ocid="contact.success_state"
               >
-                ✅ Message sent! We'll reach out within 24 hours.
+                ✓ Message sent! We'll reach out within 24 hours.
               </p>
             )}
             {submitContact.isError && (
@@ -281,7 +281,7 @@ export function ContactSection() {
                 className="text-red-500 text-sm text-center mt-3"
                 data-ocid="contact.error_state"
               >
-                ❌ Something went wrong. Please try again.
+                Something went wrong. Please try again.
               </p>
             )}
           </motion.form>

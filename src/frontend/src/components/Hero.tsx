@@ -1,81 +1,97 @@
-import { Button } from "@/components/ui/button";
-import { Award, Briefcase, Clock, Star } from "lucide-react";
 import { motion } from "motion/react";
-import { useStats } from "../hooks/useQueries";
 
-const STAT_ICONS = [Briefcase, Star, Award, Clock];
+const TICKER_ITEMS = [
+  "SEO",
+  "GOOGLE ADS",
+  "YOUTUBE ADS",
+  "SOCIAL MEDIA",
+  "BRANDING",
+  "CONTENT",
+  "LEAD GENERATION",
+  "PR",
+  "WEBSITE DEVELOPMENT",
+];
+
+// Duplicate for seamless loop
+const ALL_TICKER = [
+  ...TICKER_ITEMS.map((t) => ({ id: `a-${t}`, text: t })),
+  ...TICKER_ITEMS.map((t) => ({ id: `b-${t}`, text: t })),
+];
+
+const STATS = [
+  { value: "500+", label: "Projects" },
+  { value: "160+", label: "Reviews" },
+  { value: "5.0", label: "Google Rating" },
+  { value: "8+", label: "Years" },
+];
 
 export function Hero() {
-  const { data: stats } = useStats();
-
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden"
+      className="min-h-screen bg-[#0a0a0a] flex flex-col justify-center overflow-hidden"
     >
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/assets/generated/hero-bg.dim_1440x700.jpg')",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3A]/85 via-[#1a3a6e]/75 to-[#2B6FEA]/60" />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-4 py-20">
+      <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8 }}
         >
-          <span className="inline-block bg-[#F26A21]/20 text-[#F26A21] border border-[#F26A21]/40 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-            🏆 India's #1 Digital Marketing Agency
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-            We Make Creative Things
-            <br />
-            <span className="text-[#2B6FEA] drop-shadow-lg">Everyday</span>
-          </h1>
-          <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-            From Kota to the whole of India — PromoDaddy Digital powers brands
-            with cutting-edge SEO, Google Ads, YouTube campaigns, and social
-            media strategies that deliver real growth.
+          <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+            India's #1 Digital Marketing Agency
           </p>
-          <Button
-            size="lg"
-            className="bg-[#2B6FEA] hover:bg-[#1a5bd4] text-white font-bold px-10 py-6 text-base rounded-full shadow-2xl"
-            asChild
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-[#f5f5f0] leading-[0.95] tracking-tight mb-8">
+            We Make,
+            <br />
+            <span className="text-white/30">Creative Things</span>
+            <br />
+            Everyday
+          </h1>
+          <p className="text-white/50 text-lg max-w-xl mb-10">
+            Trusted by Sonu Sood, Mohammad Shami &amp; 500+ brands across India
+          </p>
+          <a
+            href="#contact"
             data-ocid="hero.consultation.button"
+            className="inline-block bg-[#F26A21] hover:bg-[#d95b18] text-white font-bold px-8 py-4 text-sm uppercase tracking-widest transition-colors"
           >
-            <a href="#contact">GET FREE CONSULTATION</a>
-          </Button>
-        </motion.div>
-
-        {/* Stat cards */}
-        <motion.div
-          className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-        >
-          {(stats ?? []).slice(0, 4).map((stat, i) => {
-            const Icon = STAT_ICONS[i % STAT_ICONS.length];
-            return (
-              <div
-                key={stat.id.toString()}
-                className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl p-5 text-white"
-                data-ocid={`hero.stat.item.${i + 1}`}
-              >
-                <Icon size={22} className="text-[#F26A21] mb-2 mx-auto" />
-                <div className="text-3xl font-black">{stat.value}</div>
-                <div className="text-sm text-blue-200 mt-1">
-                  {stat.textLabel}
-                </div>
-              </div>
-            );
-          })}
+            Get Free Consultation
+          </a>
         </motion.div>
       </div>
+
+      {/* Ticker */}
+      <div className="mt-10 border-t border-b border-white/10 py-4 overflow-hidden">
+        <div className="marquee-track-fast">
+          {ALL_TICKER.map((item) => (
+            <span
+              key={item.id}
+              className="text-sm font-semibold tracking-widest text-white/40 mx-8 whitespace-nowrap"
+            >
+              {item.text} <span className="text-[#F26A21] mx-2">•</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Stats strip */}
+      <motion.div
+        className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        {STATS.map((stat, i) => (
+          <div key={stat.label} data-ocid={`hero.stat.item.${i + 1}`}>
+            <div className="text-4xl md:text-5xl font-bold text-white">
+              {stat.value}
+            </div>
+            <div className="text-white/40 text-sm mt-1 uppercase tracking-widest">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }

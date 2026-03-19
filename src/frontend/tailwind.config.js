@@ -5,7 +5,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+        space: ["Space Grotesk", "sans-serif"],
+        poppins: ["Space Grotesk", "sans-serif"],
       },
       colors: {
         background: "oklch(var(--background) / <alpha-value>)",
@@ -41,10 +42,6 @@ export default {
         border: "oklch(var(--border) / <alpha-value>)",
         input: "oklch(var(--input) / <alpha-value>)",
         ring: "oklch(var(--ring) / <alpha-value>)",
-        navy: {
-          DEFAULT: "oklch(var(--navy) / <alpha-value>)",
-          foreground: "oklch(var(--navy-foreground) / <alpha-value>)",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",

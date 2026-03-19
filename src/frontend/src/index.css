@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,28 +6,26 @@
 
 @layer base {
   :root {
-    --background: 97 0.01 240;
-    --foreground: 16 0.02 260;
-    --card: 100 0 0;
-    --card-foreground: 16 0.02 260;
-    --popover: 100 0 0;
-    --popover-foreground: 16 0.02 260;
-    --primary: 52 0.18 250;
-    --primary-foreground: 100 0 0;
-    --secondary: 95 0.015 230;
-    --secondary-foreground: 16 0.02 260;
-    --muted: 95 0.01 240;
-    --muted-foreground: 52 0.02 260;
-    --accent: 62 0.18 45;
-    --accent-foreground: 100 0 0;
+    --background: 8 0 0;
+    --foreground: 97 0.005 95;
+    --card: 14 0 0;
+    --card-foreground: 97 0.005 95;
+    --popover: 14 0 0;
+    --popover-foreground: 97 0.005 95;
+    --primary: 65 0.18 45;
+    --primary-foreground: 8 0 0;
+    --secondary: 20 0 0;
+    --secondary-foreground: 97 0.005 95;
+    --muted: 18 0 0;
+    --muted-foreground: 62 0.005 95;
+    --accent: 65 0.18 45;
+    --accent-foreground: 8 0 0;
     --destructive: 55 0.22 25;
-    --destructive-foreground: 100 0 0;
-    --border: 91 0.01 260;
-    --input: 91 0.01 260;
-    --ring: 52 0.18 250;
-    --navy: 21 0.06 240;
-    --navy-foreground: 97 0.01 240;
-    --radius: 0.75rem;
+    --destructive-foreground: 97 0 0;
+    --border: 22 0 0;
+    --input: 22 0 0;
+    --ring: 65 0.18 45;
+    --radius: 0.5rem;
   }
 }
 
@@ -36,7 +34,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-poppins;
+    @apply bg-background text-foreground font-space;
+    background-color: #0a0a0a;
+    color: #f5f5f0;
   }
   html {
     scroll-behavior: smooth;
@@ -49,12 +49,30 @@
     width: max-content;
     animation: marquee 30s linear infinite;
   }
+  .marquee-track-reverse {
+    display: flex;
+    width: max-content;
+    animation: marquee-reverse 25s linear infinite;
+  }
+  .marquee-track-fast {
+    display: flex;
+    width: max-content;
+    animation: marquee 15s linear infinite;
+  }
   @keyframes marquee {
     from {
       transform: translateX(0);
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
     }
   }
 }

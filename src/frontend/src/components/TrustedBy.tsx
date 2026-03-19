@@ -1,90 +1,73 @@
-import { motion } from "motion/react";
+const ROW_ONE_BASE = [
+  "Sonu Sood",
+  "Mohammad Shami",
+  "Rashid Khan",
+  "Jaya Kishori",
+  "Pradeep Mishra",
+  "Vivek Bindra",
+];
 
-const CELEBRITIES = [
-  {
-    name: "Sonu Sood",
-    role: "Actor & Philanthropist",
-    initials: "SS",
-    color: "bg-blue-100 text-blue-700",
-  },
-  {
-    name: "Mohammad Shami",
-    role: "Indian Cricket Star",
-    initials: "MS",
-    color: "bg-green-100 text-green-700",
-  },
-  {
-    name: "Rashid Khan",
-    role: "Afghan Cricket Legend",
-    initials: "RK",
-    color: "bg-purple-100 text-purple-700",
-  },
-  {
-    name: "Pradeep Mishra",
-    role: "Katha Speaker",
-    initials: "PM",
-    color: "bg-orange-100 text-orange-700",
-  },
-  {
-    name: "Jaya Kishori",
-    role: "Motivational Speaker",
-    initials: "JK",
-    color: "bg-pink-100 text-pink-700",
-  },
-  {
-    name: "Vivek Bindra",
-    role: "Business Coach",
-    initials: "VB",
-    color: "bg-red-100 text-red-700",
-  },
+const ROW_TWO_BASE = [
+  "Kota Coaching",
+  "Hospital Brands",
+  "E-commerce",
+  "Real Estate",
+  "Political Campaigns",
+  "B2B Companies",
+  "Food Brands",
+  "Startups",
+];
+
+const ROW_ONE = [
+  ...ROW_ONE_BASE.map((n) => ({ id: `r1a-${n}`, name: n })),
+  ...ROW_ONE_BASE.map((n) => ({ id: `r1b-${n}`, name: n })),
+];
+
+const ROW_TWO = [
+  ...ROW_TWO_BASE.map((n) => ({ id: `r2a-${n}`, name: n })),
+  ...ROW_TWO_BASE.map((n) => ({ id: `r2b-${n}`, name: n })),
 ];
 
 export function TrustedBy() {
   return (
-    <section id="trusted" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-[#2B6FEA] font-semibold text-sm uppercase tracking-widest">
-            Celebrity Trust
-          </span>
-          <h2 className="text-3xl font-bold text-[#111827] mt-2">
-            Trusted by India's Biggest Names
-          </h2>
-          <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-            From Bollywood actors to cricket legends — India's biggest
-            celebrities trust PromoDaddy Digital to manage and grow their
-            personal brands online.
-          </p>
-        </motion.div>
+    <section id="trusted" className="py-20 bg-[#0a0a0a] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-12">
+        <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+          Celebrity Trust
+        </p>
+        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          Trusted by India's
+          <br />
+          Biggest Names
+        </h2>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {CELEBRITIES.map((celeb, i) => (
-            <motion.div
-              key={celeb.name}
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              data-ocid={`trusted.item.${i + 1}`}
-            >
-              <div
-                className={`w-16 h-16 rounded-full ${celeb.color} flex items-center justify-center text-xl font-bold mx-auto mb-3 ring-2 ring-offset-2 ring-gray-200`}
+      <div className="space-y-4">
+        <div className="relative overflow-hidden">
+          <div className="marquee-track">
+            {ROW_ONE.map((item, i) => (
+              <span
+                key={item.id}
+                className="border border-white/20 px-5 py-2.5 rounded-full text-sm text-white/70 whitespace-nowrap mx-2"
+                data-ocid={`trusted.item.${(i % ROW_ONE_BASE.length) + 1}`}
               >
-                {celeb.initials}
-              </div>
-              <p className="font-semibold text-sm text-[#111827]">
-                {celeb.name}
-              </p>
-              <p className="text-xs text-gray-500 mt-0.5">{celeb.role}</p>
-            </motion.div>
-          ))}
+                {item.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden">
+          <div className="marquee-track-reverse">
+            {ROW_TWO.map((item) => (
+              <span
+                key={item.id}
+                className="border border-white/10 px-5 py-2.5 rounded-full text-sm text-white/40 whitespace-nowrap mx-2"
+              >
+                {item.name}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
