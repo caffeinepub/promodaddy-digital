@@ -13,14 +13,14 @@ export function SiteFooter() {
     typeof window !== "undefined" ? window.location.hostname : "promodaddy.in";
 
   return (
-    <footer className="bg-[#000] text-white border-t border-white/5">
+    <footer className="bg-[#04070F] text-white border-t border-[rgba(255,186,8,0.08)]">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="text-2xl font-bold mb-4">
               <span className="text-white">Promo</span>
-              <span className="text-[#F26A21]">D</span>
+              <span className="text-[#FFBA08]">D</span>
               <span className="text-white">addy</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed mb-6">
@@ -58,7 +58,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-8 h-8 border border-white/10 hover:border-[#F26A21] hover:text-[#F26A21] flex items-center justify-center transition-colors text-white/50"
+                  className="w-8 h-8 border border-[rgba(255,186,8,0.12)] hover:border-[#FFBA08] hover:text-[#FFBA08] flex items-center justify-center transition-colors text-white/50"
                 >
                   <Icon size={14} />
                 </a>
@@ -120,7 +120,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="/kota"
-                  className="text-[#F26A21] hover:text-[#F26A21]/80 transition-colors font-medium flex items-center gap-1"
+                  className="text-[#FFBA08] hover:text-[#FFBA08]/80 transition-colors font-medium flex items-center gap-1"
                 >
                   📍 Digital Marketing in Kota
                 </a>
@@ -132,7 +132,7 @@ export function SiteFooter() {
             </ul>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <Phone size={14} className="text-[#F26A21] mt-0.5 shrink-0" />
+                <Phone size={14} className="text-[#FFBA08] mt-0.5 shrink-0" />
                 <a
                   href="tel:+918690522210"
                   className="text-white/50 hover:text-white transition-colors"
@@ -141,7 +141,7 @@ export function SiteFooter() {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail size={14} className="text-[#F26A21] mt-0.5 shrink-0" />
+                <Mail size={14} className="text-[#FFBA08] mt-0.5 shrink-0" />
                 <a
                   href="mailto:info@promodaddy.in"
                   className="text-white/50 hover:text-white transition-colors"
@@ -150,7 +150,7 @@ export function SiteFooter() {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={14} className="text-[#F26A21] mt-0.5 shrink-0" />
+                <MapPin size={14} className="text-[#FFBA08] mt-0.5 shrink-0" />
                 <span className="text-white/50">
                   Plot No. 26, Mahaveer Nagar,
                   <br />
@@ -162,7 +162,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-white/5 py-5">
+      <div className="border-t border-[rgba(255,186,8,0.08)] py-5">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/30">
           <span>© {year} PromoDaddy Digital. All rights reserved.</span>
           <span>
@@ -171,7 +171,7 @@ export function SiteFooter() {
               href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(hostname)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#F26A21] hover:underline"
+              className="text-[#FFBA08] hover:underline"
             >
               caffeine.ai
             </a>

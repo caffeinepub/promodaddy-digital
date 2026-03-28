@@ -5,15 +5,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "motion/react";
+import { useState } from "react";
 import { useServices } from "../hooks/useQueries";
 
 export function Services() {
   const { data: services } = useServices();
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
     <section
       id="services"
-      className="py-24 bg-[#0f0f0f] border-t border-white/5"
+      className="py-24 bg-[#0D1426] border-t border-[rgba(255,186,8,0.08)]"
     >
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
@@ -22,7 +24,7 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+          <p className="text-[#FFBA08] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
             What We Do
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -35,15 +37,23 @@ export function Services() {
             <AccordionItem
               key={service.id.toString()}
               value={service.id.toString()}
-              className="border-b border-white/10 last:border-b"
+              className="border-b border-[rgba(255,186,8,0.12)] last:border-b transition-all duration-300"
+              style={{
+                boxShadow:
+                  hoveredIdx === i
+                    ? "0 0 20px rgba(255,186,8,0.2), inset 0 0 20px rgba(255,186,8,0.05)"
+                    : "none",
+              }}
+              onMouseEnter={() => setHoveredIdx(i)}
+              onMouseLeave={() => setHoveredIdx(null)}
               data-ocid={`services.item.${i + 1}`}
             >
               <AccordionTrigger className="py-7 hover:no-underline group">
                 <div className="flex items-center gap-6 w-full">
-                  <span className="text-[#F26A21] text-sm font-mono w-8 shrink-0">
+                  <span className="text-[#FFBA08] text-sm font-mono w-8 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#F26A21] transition-colors text-left">
+                  <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#FFBA08] transition-colors text-left">
                     {service.name}
                   </span>
                 </div>
@@ -55,7 +65,7 @@ export function Services() {
                   </p>
                   <a
                     href="#contact"
-                    className="inline-block mt-5 text-[#F26A21] text-sm font-semibold hover:underline"
+                    className="inline-block mt-5 text-[#FFBA08] text-sm font-semibold hover:underline"
                   >
                     Get Started →
                   </a>

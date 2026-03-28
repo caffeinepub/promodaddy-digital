@@ -30,7 +30,7 @@ const REASONS = [
 
 export function WhyChoose() {
   return (
-    <section id="why-choose" className="py-20 bg-[#F5FAFF]">
+    <section id="why-choose" className="py-20 bg-[#0D1426]">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           className="text-center mb-12"
@@ -38,10 +38,10 @@ export function WhyChoose() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-[#F26A21] font-semibold text-sm uppercase tracking-widest">
+          <span className="text-[#FFBA08] font-semibold text-sm uppercase tracking-widest">
             Why Us
           </span>
-          <h2 className="text-3xl font-bold text-[#111827] mt-2">
+          <h2 className="text-3xl font-bold text-[#F0F4FF] mt-2">
             Why Choose PromoDaddy?
           </h2>
         </motion.div>
@@ -75,11 +75,13 @@ export function WhyChoose() {
               >
                 <CheckCircle
                   size={22}
-                  className="text-[#2B6FEA] mt-0.5 shrink-0"
+                  className="text-[#FFBA08] mt-0.5 shrink-0"
                 />
                 <div>
-                  <h3 className="font-semibold text-[#111827]">{r.title}</h3>
-                  <p className="text-sm text-gray-500 mt-0.5">{r.desc}</p>
+                  <h3 className="font-semibold text-[#F0F4FF]">{r.title}</h3>
+                  <p className="text-sm text-[rgba(240,244,255,0.5)] mt-0.5">
+                    {r.desc}
+                  </p>
                 </div>
               </div>
             ))}

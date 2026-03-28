@@ -62,7 +62,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-24 bg-[#0f0f0f] border-t border-white/5"
+      className="py-24 bg-[#0D1426] border-t border-[rgba(255,186,8,0.08)]"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20">
@@ -73,7 +73,7 @@ export function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+            <p className="text-[#FFBA08] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
               Get In Touch
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-10">
@@ -84,8 +84,8 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-5">
-                <div className="w-10 h-10 border border-[#F26A21] flex items-center justify-center shrink-0">
-                  <Phone size={16} className="text-[#F26A21]" />
+                <div className="w-10 h-10 border border-[#FFBA08] flex items-center justify-center shrink-0">
+                  <Phone size={16} className="text-[#FFBA08]" />
                 </div>
                 <div>
                   <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
@@ -93,15 +93,15 @@ export function ContactSection() {
                   </p>
                   <a
                     href="tel:+918690522210"
-                    className="text-white font-medium hover:text-[#F26A21] transition-colors"
+                    className="text-white font-medium hover:text-[#FFBA08] transition-colors"
                   >
                     +91 86905 22210
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-5">
-                <div className="w-10 h-10 border border-[#F26A21] flex items-center justify-center shrink-0">
-                  <Mail size={16} className="text-[#F26A21]" />
+                <div className="w-10 h-10 border border-[#FFBA08] flex items-center justify-center shrink-0">
+                  <Mail size={16} className="text-[#FFBA08]" />
                 </div>
                 <div>
                   <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
@@ -109,15 +109,15 @@ export function ContactSection() {
                   </p>
                   <a
                     href="mailto:info@promodaddy.in"
-                    className="text-white font-medium hover:text-[#F26A21] transition-colors"
+                    className="text-white font-medium hover:text-[#FFBA08] transition-colors"
                   >
                     info@promodaddy.in
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-5">
-                <div className="w-10 h-10 border border-[#F26A21] flex items-center justify-center shrink-0">
-                  <MapPin size={16} className="text-[#F26A21]" />
+                <div className="w-10 h-10 border border-[#FFBA08] flex items-center justify-center shrink-0">
+                  <MapPin size={16} className="text-[#FFBA08]" />
                 </div>
                 <div>
                   <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
@@ -143,7 +143,7 @@ export function ContactSection() {
             transition={{ duration: 0.7 }}
             data-ocid="contact.modal"
           >
-            <h3 className="text-[#0a0a0a] font-bold text-2xl mb-6">
+            <h3 className="text-[#F0F4FF] font-bold text-2xl mb-6">
               Get Free Consultation
             </h3>
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
@@ -256,7 +256,7 @@ export function ContactSection() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-[#F26A21] hover:bg-[#d95b18] text-white font-bold py-5 rounded-none uppercase tracking-widest text-sm"
+              className="w-full bg-[#FFBA08] hover:bg-[#E0A800] text-white font-bold py-5 rounded-none uppercase tracking-widest text-sm"
               disabled={submitContact.isPending}
               data-ocid="contact.submit.button"
             >

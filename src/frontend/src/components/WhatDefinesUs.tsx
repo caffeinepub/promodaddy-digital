@@ -9,7 +9,10 @@ const DEFINE_STATS = [
 
 export function WhatDefinesUs() {
   return (
-    <section id="about" className="py-24 bg-[#0f0f0f] border-t border-white/5">
+    <section
+      id="about"
+      className="py-24 bg-[#0D1426] border-t border-[rgba(255,186,8,0.08)]"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -18,7 +21,7 @@ export function WhatDefinesUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+            <p className="text-[#FFBA08] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
               What Defines Us
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
@@ -34,7 +37,7 @@ export function WhatDefinesUs() {
             <a
               href="#work"
               data-ocid="about.explore.link"
-              className="inline-block mt-8 text-[#F26A21] font-semibold"
+              className="inline-block mt-8 text-[#FFBA08] font-semibold"
             >
               Explore our work →
             </a>
@@ -50,7 +53,7 @@ export function WhatDefinesUs() {
               {DEFINE_STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-[#0f0f0f] p-10"
+                  className="bg-[#0D1426] p-10"
                   data-ocid={`about.stat.item.${DEFINE_STATS.indexOf(stat) + 1}`}
                 >
                   <div className="text-5xl font-bold text-white mb-2">

@@ -25,6 +25,7 @@ import { WorkShowcase } from "./components/WorkShowcase";
 import { useIsAdmin } from "./hooks/useQueries";
 import { AdminPage } from "./pages/AdminPage";
 import { KotaPage } from "./pages/KotaPage";
+import { ProjectsPage } from "./pages/ProjectsPage";
 
 const queryClient = new QueryClient();
 
@@ -33,7 +34,7 @@ function HomePage() {
   const { data: isAdmin } = useIsAdmin();
 
   return (
-    <div className="font-space bg-[#0a0a0a] text-[#f5f5f0]">
+    <div className="font-space bg-[#080D1A] text-[#F0F4FF]">
       <Navbar
         onAdminClick={() => setIsAdminView((v) => !v)}
         isAdminView={isAdminView}
@@ -88,7 +89,13 @@ const kotaRoute = createRoute({
   component: KotaRoute,
 });
 
-const routeTree = rootRoute.addChildren([homeRoute, kotaRoute]);
+const projectsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/projects",
+  component: ProjectsPage,
+});
+
+const routeTree = rootRoute.addChildren([homeRoute, kotaRoute, projectsRoute]);
 
 const router = createRouter({ routeTree });
 

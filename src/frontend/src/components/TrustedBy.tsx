@@ -4,7 +4,8 @@ const ROW_ONE_BASE = [
   "Rashid Khan",
   "Jaya Kishori",
   "Pradeep Mishra",
-  "Vivek Bindra",
+  "AB de Villiers",
+  "Quinton de Kock",
 ];
 
 const ROW_TWO_BASE = [
@@ -30,9 +31,9 @@ const ROW_TWO = [
 
 export function TrustedBy() {
   return (
-    <section id="trusted" className="py-20 bg-[#0a0a0a] overflow-hidden">
+    <section id="trusted" className="py-20 bg-[#080D1A] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-12">
-        <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+        <p className="text-[#FFBA08] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
           Celebrity Trust
         </p>
         <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
@@ -48,7 +49,7 @@ export function TrustedBy() {
             {ROW_ONE.map((item, i) => (
               <span
                 key={item.id}
-                className="border border-white/20 px-5 py-2.5 rounded-full text-sm text-white/70 whitespace-nowrap mx-2"
+                className="border border-[rgba(255,186,8,0.3)] px-5 py-2.5 rounded-full text-sm text-white/70 whitespace-nowrap mx-2"
                 data-ocid={`trusted.item.${(i % ROW_ONE_BASE.length) + 1}`}
               >
                 {item.name}
@@ -62,7 +63,7 @@ export function TrustedBy() {
             {ROW_TWO.map((item) => (
               <span
                 key={item.id}
-                className="border border-white/10 px-5 py-2.5 rounded-full text-sm text-white/40 whitespace-nowrap mx-2"
+                className="border border-[rgba(255,186,8,0.12)] px-5 py-2.5 rounded-full text-sm text-white/40 whitespace-nowrap mx-2"
               >
                 {item.name}
               </span>

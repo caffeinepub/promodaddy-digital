@@ -30,7 +30,7 @@ const STEPS = [
 
 export function HowWeWork() {
   return (
-    <section className="py-24 bg-[#0a0a0a] border-t border-white/5">
+    <section className="py-24 bg-[#080D1A] border-t border-[rgba(255,186,8,0.08)]">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="mb-16"
@@ -38,7 +38,7 @@ export function HowWeWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+          <p className="text-[#FFBA08] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
             Our Process
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -46,7 +46,7 @@ export function HowWeWork() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-px bg-white/5">
+        <div className="grid md:grid-cols-5 gap-px bg-[rgba(255,186,8,0.04)]">
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
@@ -54,10 +54,10 @@ export function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-[#0a0a0a] p-8 hover:bg-[#111] transition-colors group"
+              className="bg-[#080D1A] p-8 hover:bg-[#0D1426] transition-colors group"
               data-ocid={`process.step.item.${i + 1}`}
             >
-              <div className="w-10 h-10 rounded-full border-2 border-[#F26A21] flex items-center justify-center text-[#F26A21] font-bold text-sm mb-6 group-hover:bg-[#F26A21] group-hover:text-black transition-colors">
+              <div className="w-10 h-10 rounded-full border-2 border-[#FFBA08] flex items-center justify-center text-[#FFBA08] font-bold text-sm mb-6 group-hover:bg-[#FFBA08] group-hover:text-black transition-colors">
                 {step.num}
               </div>
               <h3 className="text-white font-bold text-lg mb-3">

@@ -1,16 +1,18 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 import { LayoutDashboard, LogIn, LogOut, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useIsAdmin } from "../hooks/useQueries";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/", isRoute: true },
+  { label: "Work", href: "#work", isRoute: false },
+  { label: "Services", href: "#services", isRoute: false },
+  { label: "About", href: "#about", isRoute: false },
+  { label: "Projects", href: "/projects", isRoute: true },
   { label: "Kota", href: "/kota", isRoute: true },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "#contact", isRoute: false },
 ];
 
 interface NavbarProps {
@@ -25,30 +27,32 @@ export function Navbar({ onAdminClick, isAdminView }: NavbarProps) {
   const isLoggedIn = loginStatus === "success" && !!identity;
 
   return (
-    <nav className="bg-[#0a0a0a] sticky top-0 z-50 border-b border-white/10">
+    <nav className="bg-[#080D1A] sticky top-0 z-50 border-b border-[rgba(255,186,8,0.12)]">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="flex items-center gap-0.5 font-bold text-xl tracking-tight"
         >
-          <span className="text-[#f5f5f0]">Promo</span>
-          <span className="text-[#F26A21]">D</span>
-          <span className="text-[#f5f5f0]">addy</span>
-        </a>
+          <span className="text-[#F0F4FF]">Promo</span>
+          <span className="text-[#FFBA08]">D</span>
+          <span className="text-[#F0F4FF]">addy</span>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((link) =>
             link.isRoute ? (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 data-ocid={`nav.${link.label.toLowerCase()}.link`}
-                className="text-sm font-medium text-[#F26A21] hover:text-[#F26A21]/80 transition-colors relative group border border-[#F26A21]/40 px-3 py-1 hover:border-[#F26A21] transition-all"
+                className="text-sm font-medium text-white/60 hover:text-white transition-colors relative group"
+                activeProps={{ className: "text-[#FFBA08]" }}
               >
                 {link.label}
-              </a>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#FFBA08] transition-all duration-300 group-hover:w-full" />
+              </Link>
             ) : (
               <a
                 key={link.href}
@@ -57,7 +61,7 @@ export function Navbar({ onAdminClick, isAdminView }: NavbarProps) {
                 className="text-sm font-medium text-white/60 hover:text-white transition-colors relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#F26A21] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#FFBA08] transition-all duration-300 group-hover:w-full" />
               </a>
             ),
           )}
@@ -102,7 +106,7 @@ export function Navbar({ onAdminClick, isAdminView }: NavbarProps) {
           <a
             href="#contact"
             data-ocid="nav.proposal.button"
-            className="bg-[#F26A21] hover:bg-[#d95b18] text-white font-semibold px-5 py-2 text-sm transition-colors"
+            className="bg-[#FFBA08] hover:bg-[#E0A800] text-white font-semibold px-5 py-2 text-sm transition-colors"
           >
             Work With Us
           </a>
@@ -122,17 +126,32 @@ export function Navbar({ onAdminClick, isAdminView }: NavbarProps) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-[#111] border-t border-white/10 px-6 pb-6 pt-4">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="block py-3 text-sm font-medium text-white/60 hover:text-white border-b border-white/5 last:border-0"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="lg:hidden bg-[#0D1426] border-t border-[rgba(255,186,8,0.12)] px-6 pb-6 pt-4">
+          {NAV_LINKS.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="block py-3 text-sm font-medium text-white/60 hover:text-white border-b border-[rgba(255,186,8,0.08)] last:border-0"
+                activeProps={{
+                  className:
+                    "block py-3 text-sm font-medium text-[#FFBA08] border-b border-[rgba(255,186,8,0.08)] last:border-0",
+                }}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="block py-3 text-sm font-medium text-white/60 hover:text-white border-b border-[rgba(255,186,8,0.08)] last:border-0"
+              >
+                {link.label}
+              </a>
+            ),
+          )}
           <div className="mt-4 flex flex-col gap-2">
             {isAdmin && (
               <Button
@@ -176,7 +195,7 @@ export function Navbar({ onAdminClick, isAdminView }: NavbarProps) {
                 window.location.href = "#contact";
               }}
               data-ocid="nav.proposal.mobile.button"
-              className="bg-[#F26A21] hover:bg-[#d95b18] text-white font-semibold justify-center"
+              className="bg-[#FFBA08] hover:bg-[#E0A800] text-white font-semibold justify-center"
             >
               Work With Us
             </Button>

@@ -1,16 +1,44 @@
-import { motion } from "motion/react";
+import { animate, motion, useInView, useMotionValue } from "motion/react";
+import { useEffect, useRef } from "react";
 
 const STATS = [
-  { value: "93M+", label: "YouTube Views" },
-  { value: "160+", label: "Five-Star Reviews" },
-  { value: "500+", label: "Projects Delivered" },
+  { raw: 93, suffix: "M+", label: "YouTube Views" },
+  { raw: 1600, suffix: "+", label: "Five-Star Reviews" },
+  { raw: 5000, suffix: "+", label: "Projects Delivered" },
 ];
+
+function CountUp({ to, suffix }: { to: number; suffix: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const motionVal = useMotionValue(0);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(motionVal, to, {
+      duration: 2,
+      ease: "easeOut",
+      onUpdate(latest) {
+        if (ref.current) {
+          ref.current.textContent =
+            Math.round(latest).toLocaleString() + suffix;
+        }
+      },
+    });
+    return controls.stop;
+  }, [inView, to, suffix, motionVal]);
+
+  return (
+    <div ref={ref} className="text-6xl md:text-7xl font-bold text-white">
+      0{suffix}
+    </div>
+  );
+}
 
 export function RealResults() {
   return (
     <section
       id="results"
-      className="py-24 bg-[#0f0f0f] border-t border-white/5"
+      className="py-24 bg-[#0D1426] border-t border-[rgba(255,186,8,0.08)]"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -20,7 +48,7 @@ export function RealResults() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+            <p className="text-[#FFBA08] text-sm font-semibold uppercase tracking-[0.2em] mb-6">
               Real Impact
             </p>
             <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-8">
@@ -38,7 +66,7 @@ export function RealResults() {
             <a
               href="#contact"
               data-ocid="results.learnmore.button"
-              className="inline-block bg-[#F26A21] hover:bg-[#d95b18] text-white font-bold px-8 py-4 text-sm uppercase tracking-widest transition-colors"
+              className="inline-block bg-[#FFBA08] hover:bg-[#E0A800] text-white font-bold px-8 py-4 text-sm uppercase tracking-widest transition-colors"
             >
               Start Your Growth
             </a>
@@ -52,18 +80,20 @@ export function RealResults() {
             transition={{ duration: 0.7 }}
           >
             {STATS.map((stat, i) => (
-              <div
+              <motion.div
                 key={stat.label}
-                className="bg-[#141414] p-10 border-l-2 border-[#F26A21]"
+                className="bg-[#111B35] p-10 border-l-2 border-[#FFBA08]"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.5 }}
                 data-ocid={`results.kpi.item.${i + 1}`}
               >
-                <div className="text-6xl md:text-7xl font-bold text-white">
-                  {stat.value}
-                </div>
+                <CountUp to={stat.raw} suffix={stat.suffix} />
                 <div className="text-white/40 text-sm uppercase tracking-widest mt-2">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>

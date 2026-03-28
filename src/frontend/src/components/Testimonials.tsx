@@ -30,7 +30,7 @@ export function Testimonials() {
   const t = TESTIMONIALS[active];
 
   return (
-    <section className="py-24 bg-[#0f0f0f] border-t border-white/5">
+    <section className="py-24 bg-[#0D1426] border-t border-[rgba(255,186,8,0.08)]">
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           className="mb-16 text-center"
@@ -38,7 +38,7 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-[#F26A21] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+          <p className="text-[#FFBA08] text-sm font-semibold uppercase tracking-[0.2em] mb-4">
             Testimonials
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -47,7 +47,7 @@ export function Testimonials() {
         </motion.div>
 
         <div className="text-center">
-          <span className="text-8xl text-[#F26A21] leading-none font-serif">
+          <span className="text-8xl text-[#FFBA08] leading-none font-serif">
             &ldquo;
           </span>
           <motion.div
@@ -70,7 +70,7 @@ export function Testimonials() {
                 type="button"
                 onClick={() => setActive(i)}
                 data-ocid="testimonials.tab"
-                className={`w-8 h-1 transition-colors ${i === active ? "bg-[#F26A21]" : "bg-white/20"}`}
+                className={`w-8 h-1 transition-colors ${i === active ? "bg-[#FFBA08]" : "bg-white/20"}`}
                 aria-label={`Testimonial ${i + 1}`}
               />
             ))}
