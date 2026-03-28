@@ -101,7 +101,7 @@ export function SiteFooter() {
               ].map((s) => (
                 <li key={s}>
                   <a
-                    href="#services"
+                    href="/services"
                     className="text-white/50 hover:text-white transition-colors"
                   >
                     {s}

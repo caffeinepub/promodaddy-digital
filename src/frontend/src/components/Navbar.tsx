@@ -8,7 +8,7 @@ import { useIsAdmin } from "../hooks/useQueries";
 const NAV_LINKS = [
   { label: "Home", href: "/", isRoute: true },
   { label: "Work", href: "#work", isRoute: false },
-  { label: "Services", href: "#services", isRoute: false },
+  { label: "Services", href: "/services", isRoute: true },
   { label: "About", href: "#about", isRoute: false },
   { label: "Projects", href: "/projects", isRoute: true },
   { label: "Kota", href: "/kota", isRoute: true },

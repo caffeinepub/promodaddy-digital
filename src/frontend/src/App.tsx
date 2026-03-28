@@ -26,6 +26,7 @@ import { useIsAdmin } from "./hooks/useQueries";
 import { AdminPage } from "./pages/AdminPage";
 import { KotaPage } from "./pages/KotaPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
+import { ServicesPage } from "./pages/ServicesPage";
 
 const queryClient = new QueryClient();
 
@@ -95,7 +96,18 @@ const projectsRoute = createRoute({
   component: ProjectsPage,
 });
 
-const routeTree = rootRoute.addChildren([homeRoute, kotaRoute, projectsRoute]);
+const servicesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services",
+  component: ServicesPage,
+});
+
+const routeTree = rootRoute.addChildren([
+  homeRoute,
+  kotaRoute,
+  projectsRoute,
+  servicesRoute,
+]);
 
 const router = createRouter({ routeTree });
 
