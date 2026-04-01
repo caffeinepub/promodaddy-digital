@@ -30,6 +30,7 @@ import { MetaAdsIndiaPage } from "./pages/MetaAdsIndiaPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { SeoServicesIndiaPage } from "./pages/SeoServicesIndiaPage";
 import { ServicesPage } from "./pages/ServicesPage";
+import { SocialMediaIndiaPage } from "./pages/SocialMediaIndiaPage";
 
 const queryClient = new QueryClient();
 
@@ -123,6 +124,12 @@ const metaAdsIndiaRoute = createRoute({
   component: MetaAdsIndiaPage,
 });
 
+const socialMediaIndiaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/social-media-marketing-india",
+  component: SocialMediaIndiaPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   kotaRoute,
@@ -131,6 +138,7 @@ const routeTree = rootRoute.addChildren([
   seoServicesIndiaRoute,
   googleAdsIndiaRoute,
   metaAdsIndiaRoute,
+  socialMediaIndiaRoute,
 ]);
 
 const router = createRouter({ routeTree });

@@ -183,7 +183,7 @@ const services = [
       "Monthly Analytics",
     ],
     cta: "Get Social Media Plan",
-    link: "/",
+    link: "/services/social-media-marketing-india",
   },
   {
     id: "05",
