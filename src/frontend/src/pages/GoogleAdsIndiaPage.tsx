@@ -3,6 +3,8 @@ import {
   ArrowRight,
   Award,
   BarChart3,
+  Bed,
+  Building2,
   CheckCircle,
   ChevronDown,
   ChevronUp,
@@ -128,16 +130,76 @@ const adServices = [
     ],
   },
   {
-    title: "Google Ads for Coaching Institutes (Kota Specialty)",
-    icon: Award,
-    desc: "Coaching institutes have a unique admission cycle — peak season March-June, specific parent and student personas, and a highly competitive Kota market. Our team has hands-on experience running admission campaigns.",
+    title: "Google Ads for Real Estate India",
+    icon: Building2,
+    desc: "Real estate is one of India's highest-value Google Ads categories. We create RERA-compliant property inquiry campaigns targeting active buyers searching for flats, plots, and commercial properties in your target city. Site visit bookings, project launch awareness, and builder brand campaigns — all managed with full transparency.",
     features: [
-      "Admission lead generation — Rs.300-500 CPL target",
-      "Seasonal campaign strategy — peak admission season",
+      "Property inquiry campaigns — 'flats in [city]', 'plots near me'",
+      "RERA-compliant ad copy creation",
+      "Site visit invitation landing pages with map + WhatsApp",
+      "Project launch awareness campaigns — Display + Search",
+      "Remarketing to website visitors who viewed property pages",
+      "CPL target: Rs.800-1,500 per qualified property inquiry",
+    ],
+  },
+  {
+    title: "Google Ads for Hotels & Hospitality",
+    icon: Bed,
+    desc: "Hotels in India pay 20-30% OTA commission per booking. Google Ads helps you capture direct bookings from travelers searching for hotels in your city — at zero commission. We also run restaurant footfall campaigns and banquet/event lead generation ads.",
+    features: [
+      "Google Hotel Ads — appear directly in Google search for hotels",
+      "Direct booking campaigns — reduce MakeMyTrip/OYO dependency",
+      "Restaurant footfall ads — 'best restaurant near me' targeting",
+      "Banquet & wedding venue lead generation campaigns",
+      "Corporate booking campaigns for business travelers",
+      "Seasonal offer promotion — IPL, Diwali, New Year packages",
+    ],
+  },
+  {
+    title: "Google Ads for Coaching Institutes",
+    icon: Award,
+    desc: "Coaching institutes have a unique admission cycle — peak season March-June, specific parent and student personas, and a competitive market. Our team has hands-on experience running admission campaigns for education clients across India.",
+    features: [
+      "Admission lead generation campaigns — Rs.300-500 CPL target",
+      "Seasonal campaign strategy — peak admission season focus",
       "Parent vs student targeting — different messaging",
       "WhatsApp number lead capture integration",
+      "Course-specific campaigns — IIT, NEET, Foundation",
       "Competitor conquest campaigns",
     ],
+  },
+];
+
+const industries = [
+  {
+    name: "Real Estate",
+    emoji: "🏠",
+    featured: true,
+    desc: "Property inquiry campaigns, site visit bookings, project launch ads, RERA-compliant ad copies. Target keywords: 'flats in [city]', 'property dealer near me'. CPL target: Rs.800-1,500.",
+  },
+  {
+    name: "Hotels & Hospitality",
+    emoji: "🏨",
+    featured: false,
+    desc: "Direct room booking campaigns, restaurant footfall ads, banquet & wedding event lead generation. Reduce OTA commission dependency with targeted Google Search Ads for direct bookings.",
+  },
+  {
+    name: "Coaching & Education",
+    emoji: "🎓",
+    featured: false,
+    desc: "Admission lead generation campaigns, course promotion, peak exam season targeting. CPL target: Rs.300-500 per admission inquiry. IIT, NEET, Foundation course campaigns.",
+  },
+  {
+    name: "E-Commerce",
+    emoji: "🛒",
+    featured: false,
+    desc: "Shopping Ads, Performance Max, product visibility campaigns for Indian online stores.",
+  },
+  {
+    name: "Healthcare",
+    emoji: "🏥",
+    featured: false,
+    desc: "Patient inquiry campaigns for clinics, hospitals, and doctors in India.",
   },
 ];
 
@@ -306,6 +368,51 @@ export function GoogleAdsIndiaPage() {
         </div>
       </section>
 
+      {/* Industries We Serve */}
+      <section className="py-16 px-6 bg-[#080D1A]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black mb-3">
+              Industries We Serve
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Specialized Google Ads campaigns for India's key growth sectors
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {industries.map((ind) => (
+              <div
+                key={ind.name}
+                className={`rounded-xl p-6 border transition-all ${
+                  ind.featured
+                    ? "bg-[#FFBA08]/5 border-[#FFBA08] shadow-[0_0_20px_rgba(255,186,8,0.15)]"
+                    : "bg-[#0D1526] border-white/5 hover:border-[#FFBA08]/30"
+                }`}
+              >
+                {ind.featured && (
+                  <div className="inline-flex items-center gap-1 bg-[#FFBA08] text-[#080D1A] text-xs font-bold px-2 py-0.5 rounded-full mb-3">
+                    ⭐ Priority Sector
+                  </div>
+                )}
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl">{ind.emoji}</span>
+                  <h3
+                    className={`font-black text-lg ${
+                      ind.featured ? "text-[#FFBA08]" : "text-white"
+                    }`}
+                  >
+                    {ind.name}
+                  </h3>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {ind.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Google Ads */}
       <section className="py-16 px-6 max-w-6xl mx-auto">
         <h2 className="text-3xl font-black mb-4">
@@ -432,7 +539,9 @@ export function GoogleAdsIndiaPage() {
                   </div>
                 )}
                 <h3
-                  className={`font-black text-xl mb-1 ${p.highlight ? "text-[#FFBA08]" : "text-white"}`}
+                  className={`font-black text-xl mb-1 ${
+                    p.highlight ? "text-[#FFBA08]" : "text-white"
+                  }`}
                 >
                   {p.plan}
                 </h3>
