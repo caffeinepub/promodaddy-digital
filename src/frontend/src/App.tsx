@@ -24,8 +24,11 @@ import { WhatDefinesUs } from "./components/WhatDefinesUs";
 import { WorkShowcase } from "./components/WorkShowcase";
 import { useIsAdmin } from "./hooks/useQueries";
 import { AdminPage } from "./pages/AdminPage";
+import { GoogleAdsIndiaPage } from "./pages/GoogleAdsIndiaPage";
 import { KotaPage } from "./pages/KotaPage";
+import { MetaAdsIndiaPage } from "./pages/MetaAdsIndiaPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
+import { SeoServicesIndiaPage } from "./pages/SeoServicesIndiaPage";
 import { ServicesPage } from "./pages/ServicesPage";
 
 const queryClient = new QueryClient();
@@ -102,11 +105,32 @@ const servicesRoute = createRoute({
   component: ServicesPage,
 });
 
+const seoServicesIndiaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/seo-services-india",
+  component: SeoServicesIndiaPage,
+});
+
+const googleAdsIndiaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/google-ads-india",
+  component: GoogleAdsIndiaPage,
+});
+
+const metaAdsIndiaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/meta-ads-india",
+  component: MetaAdsIndiaPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   kotaRoute,
   projectsRoute,
   servicesRoute,
+  seoServicesIndiaRoute,
+  googleAdsIndiaRoute,
+  metaAdsIndiaRoute,
 ]);
 
 const router = createRouter({ routeTree });

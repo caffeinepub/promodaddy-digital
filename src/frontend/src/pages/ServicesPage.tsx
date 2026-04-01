@@ -121,6 +121,7 @@ const services = [
       "E-commerce SEO",
     ],
     cta: "Get Free SEO Audit",
+    link: "/services/seo-services-india",
   },
   {
     id: "02",
@@ -140,6 +141,7 @@ const services = [
       "Budget from Rs.10,000/month",
     ],
     cta: "Start Your Google Ads Campaign",
+    link: "/services/google-ads-india",
   },
   {
     id: "03",
@@ -160,6 +162,7 @@ const services = [
       "Weekly Reports",
     ],
     cta: "Launch My Meta Ads Campaign",
+    link: "/services/meta-ads-india",
   },
   {
     id: "04",
@@ -180,6 +183,7 @@ const services = [
       "Monthly Analytics",
     ],
     cta: "Get Social Media Plan",
+    link: "/",
   },
   {
     id: "05",
@@ -200,6 +204,7 @@ const services = [
       "Monthly Analytics",
     ],
     cta: "Grow My YouTube Channel",
+    link: "/",
   },
   {
     id: "06",
@@ -220,6 +225,7 @@ const services = [
       "Post-launch Support",
     ],
     cta: "Get Website Quote",
+    link: "/",
   },
   {
     id: "07",
@@ -240,6 +246,7 @@ const services = [
       "Performance Tracking",
     ],
     cta: "Get Content Strategy Plan",
+    link: "/",
   },
   {
     id: "08",
@@ -259,6 +266,7 @@ const services = [
       "Local SEO Reports",
     ],
     cta: "Improve My Local SEO",
+    link: "/",
   },
   {
     id: "09",
@@ -279,6 +287,7 @@ const services = [
       "Wikipedia & Digital Presence",
     ],
     cta: "Discuss My PR Strategy",
+    link: "/",
   },
   {
     id: "10",
@@ -299,6 +308,7 @@ const services = [
       "Vernacular Influencer Marketing",
     ],
     cta: "Plan Influencer Campaign",
+    link: "/",
   },
 ];
 
@@ -755,7 +765,7 @@ export function ServicesPage({ onAdminClick, isAdminView }: ServicesPageProps) {
                         ))}
                       </div>
                       <Link
-                        to="/"
+                        to={service.link}
                         data-ocid="services.secondary_button"
                         className="inline-flex items-center gap-2 border border-[#FFBA08] text-[#FFBA08] font-semibold px-6 py-2.5 hover:bg-[#FFBA08] hover:text-[#080D1A] transition-all text-sm"
                       >
