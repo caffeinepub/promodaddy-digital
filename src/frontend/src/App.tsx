@@ -15,6 +15,7 @@ import { Hero } from "./components/Hero";
 import { HowWeWork } from "./components/HowWeWork";
 import { Industries } from "./components/Industries";
 import { Navbar } from "./components/Navbar";
+import { OurPartners } from "./components/OurPartners";
 import { RealResults } from "./components/RealResults";
 import { Services } from "./components/Services";
 import { SiteFooter } from "./components/SiteFooter";
@@ -50,6 +51,7 @@ function HomePage() {
       ) : (
         <main>
           <Hero />
+          <OurPartners />
           <TrustedBy />
           <Celebrities />
           <WhatDefinesUs />

@@ -199,7 +199,7 @@ export function ProjectsPage() {
               {[
                 { val: "5000+", label: "Projects Done" },
                 { val: "1600+", label: "Happy Clients" },
-                { val: "8+", label: "Years Active" },
+                { val: "12+", label: "Years Active" },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="text-3xl font-black text-[#FFBA08]">

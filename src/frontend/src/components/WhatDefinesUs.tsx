@@ -1,8 +1,9 @@
+import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 
 const DEFINE_STATS = [
   { value: "500+", label: "Clients" },
-  { value: "8+", label: "Years" },
+  { value: "12+", label: "Years" },
   { value: "12+", label: "Industries" },
   { value: "3M+", label: "Leads Generated" },
 ];
@@ -34,13 +35,12 @@ export function WhatDefinesUs() {
               tangible impact, we combine strategy, creativity, and data to put
               your brand in front of the right audience.
             </p>
-            <a
-              href="#work"
-              data-ocid="about.explore.link"
-              className="inline-block mt-8 text-[#FFBA08] font-semibold"
+            <Link
+              to="/projects"
+              className="inline-block mt-8 text-[#FFBA08] font-semibold hover:text-white transition-colors"
             >
               Explore our work →
-            </a>
+            </Link>
           </motion.div>
 
           <motion.div

@@ -35,7 +35,7 @@ const AWARDS = [
     id: "india-no1",
     year: "2024",
     title: "India's #1 Digital Agency from Kota",
-    subtitle: "8+ Years Experience",
+    subtitle: "12+ Years Experience",
   },
 ];
 
