@@ -31,6 +31,7 @@ import { ProjectsPage } from "./pages/ProjectsPage";
 import { SeoServicesIndiaPage } from "./pages/SeoServicesIndiaPage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { SocialMediaIndiaPage } from "./pages/SocialMediaIndiaPage";
+import { YouTubeMarketingIndiaPage } from "./pages/YouTubeMarketingIndiaPage";
 
 const queryClient = new QueryClient();
 
@@ -130,6 +131,12 @@ const socialMediaIndiaRoute = createRoute({
   component: SocialMediaIndiaPage,
 });
 
+const youtubeMarketingIndiaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/youtube-marketing-agency-india",
+  component: YouTubeMarketingIndiaPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   kotaRoute,
@@ -139,6 +146,7 @@ const routeTree = rootRoute.addChildren([
   googleAdsIndiaRoute,
   metaAdsIndiaRoute,
   socialMediaIndiaRoute,
+  youtubeMarketingIndiaRoute,
 ]);
 
 const router = createRouter({ routeTree });

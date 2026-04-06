@@ -204,7 +204,7 @@ const services = [
       "Monthly Analytics",
     ],
     cta: "Grow My YouTube Channel",
-    link: "/",
+    link: "/services/youtube-marketing-agency-india",
   },
   {
     id: "06",
